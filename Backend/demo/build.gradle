@@ -24,7 +24,10 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+//	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+//	https://mvnrepository.com/artifact/se.michaelthelin.spotify/spotify-web-api-java
+//	implementation group: 'se.michaelthelin.spotify', name: 'spotify-web-api-java', version: '9.1.1'
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.session:spring-session-core'
 	compileOnly 'org.projectlombok:lombok'
