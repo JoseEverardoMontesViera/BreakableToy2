@@ -1,0 +1,246 @@
+{
+    "items": [
+        {
+            "external_urls": {
+                "spotify": "https://open.spotify.com/artist/7Ip8SqItaKjJtgtKUNCShb"
+            },
+            "followers": {
+                "href": null,
+                "total": 487242
+            },
+            "genres": [],
+            "href": "https://api.spotify.com/v1/artists/7Ip8SqItaKjJtgtKUNCShb",
+            "id": "7Ip8SqItaKjJtgtKUNCShb",
+            "images": [
+                {
+                    "height": 640,
+                    "url": "https://i.scdn.co/image/ab6761610000e5ebbc20253cea9d59a4a064c1da",
+                    "width": 640
+                },
+                {
+                    "height": 320,
+                    "url": "https://i.scdn.co/image/ab67616100005174bc20253cea9d59a4a064c1da",
+                    "width": 320
+                },
+                {
+                    "height": 160,
+                    "url": "https://i.scdn.co/image/ab6761610000f178bc20253cea9d59a4a064c1da",
+                    "width": 160
+                }
+            ],
+            "name": "Missa Sinfonia",
+            "popularity": 43,
+            "type": "artist",
+            "uri": "spotify:artist:7Ip8SqItaKjJtgtKUNCShb"
+        },
+        {
+            "external_urls": {
+                "spotify": "https://open.spotify.com/artist/5KWOCu1saEHAhPiLKlOLIy"
+            },
+            "followers": {
+                "href": null,
+                "total": 405635
+            },
+            "genres": [
+                "metal"
+            ],
+            "href": "https://api.spotify.com/v1/artists/5KWOCu1saEHAhPiLKlOLIy",
+            "id": "5KWOCu1saEHAhPiLKlOLIy",
+            "images": [
+                {
+                    "height": 640,
+                    "url": "https://i.scdn.co/image/ab6761610000e5eb2ced60775df081623682d4ae",
+                    "width": 640
+                },
+                {
+                    "height": 320,
+                    "url": "https://i.scdn.co/image/ab676161000051742ced60775df081623682d4ae",
+                    "width": 320
+                },
+                {
+                    "height": 160,
+                    "url": "https://i.scdn.co/image/ab6761610000f1782ced60775df081623682d4ae",
+                    "width": 160
+                }
+            ],
+            "name": "Leo",
+            "popularity": 52,
+            "type": "artist",
+            "uri": "spotify:artist:5KWOCu1saEHAhPiLKlOLIy"
+        },
+        {
+            "external_urls": {
+                "spotify": "https://open.spotify.com/artist/52NCHGkTcQvvAQDY6Iy7al"
+            },
+            "followers": {
+                "href": null,
+                "total": 91571
+            },
+            "genres": [],
+            "href": "https://api.spotify.com/v1/artists/52NCHGkTcQvvAQDY6Iy7al",
+            "id": "52NCHGkTcQvvAQDY6Iy7al",
+            "images": [
+                {
+                    "height": 640,
+                    "url": "https://i.scdn.co/image/ab6761610000e5ebe155c6a9cb4ff45b54086209",
+                    "width": 640
+                },
+                {
+                    "height": 320,
+                    "url": "https://i.scdn.co/image/ab67616100005174e155c6a9cb4ff45b54086209",
+                    "width": 320
+                },
+                {
+                    "height": 160,
+                    "url": "https://i.scdn.co/image/ab6761610000f178e155c6a9cb4ff45b54086209",
+                    "width": 160
+                }
+            ],
+            "name": "4x3",
+            "popularity": 45,
+            "type": "artist",
+            "uri": "spotify:artist:52NCHGkTcQvvAQDY6Iy7al"
+        },
+        {
+            "external_urls": {
+                "spotify": "https://open.spotify.com/artist/52NCHGkTcQvvAQDY6Iy7al"
+            },
+            "followers": {
+                "href": null,
+                "total": 91571
+            },
+            "genres": [],
+            "href": "https://api.spotify.com/v1/artists/52NCHGkTcQvvAQDY6Iy7al",
+            "id": "52NCHGkTcQvvAQDY6Iy7al",
+            "images": [
+                {
+                    "height": 640,
+                    "url": "https://i.scdn.co/image/ab6761610000e5ebe155c6a9cb4ff45b54086209",
+                    "width": 640
+                },
+                {
+                    "height": 320,
+                    "url": "https://i.scdn.co/image/ab67616100005174e155c6a9cb4ff45b54086209",
+                    "width": 320
+                },
+                {
+                    "height": 160,
+                    "url": "https://i.scdn.co/image/ab6761610000f178e155c6a9cb4ff45b54086209",
+                    "width": 160
+                }
+            ],
+            "name": "4x3",
+            "popularity": 45,
+            "type": "artist",
+            "uri": "spotify:artist:52NCHGkTcQvvAQDY6Iy7al"
+        },
+        {
+            "external_urls": {
+                "spotify": "https://open.spotify.com/artist/52NCHGkTcQvvAQDY6Iy7al"
+            },
+            "followers": {
+                "href": null,
+                "total": 91571
+            },
+            "genres": [],
+            "href": "https://api.spotify.com/v1/artists/52NCHGkTcQvvAQDY6Iy7al",
+            "id": "52NCHGkTcQvvAQDY6Iy7al",
+            "images": [
+                {
+                    "height": 640,
+                    "url": "https://i.scdn.co/image/ab6761610000e5ebe155c6a9cb4ff45b54086209",
+                    "width": 640
+                },
+                {
+                    "height": 320,
+                    "url": "https://i.scdn.co/image/ab67616100005174e155c6a9cb4ff45b54086209",
+                    "width": 320
+                },
+                {
+                    "height": 160,
+                    "url": "https://i.scdn.co/image/ab6761610000f178e155c6a9cb4ff45b54086209",
+                    "width": 160
+                }
+            ],
+            "name": "4x3",
+            "popularity": 45,
+            "type": "artist",
+            "uri": "spotify:artist:52NCHGkTcQvvAQDY6Iy7al"
+        },
+        {
+            "external_urls": {
+                "spotify": "https://open.spotify.com/artist/52NCHGkTcQvvAQDY6Iy7al"
+            },
+            "followers": {
+                "href": null,
+                "total": 91571
+            },
+            "genres": [],
+            "href": "https://api.spotify.com/v1/artists/52NCHGkTcQvvAQDY6Iy7al",
+            "id": "52NCHGkTcQvvAQDY6Iy7al",
+            "images": [
+                {
+                    "height": 640,
+                    "url": "https://i.scdn.co/image/ab6761610000e5ebe155c6a9cb4ff45b54086209",
+                    "width": 640
+                },
+                {
+                    "height": 320,
+                    "url": "https://i.scdn.co/image/ab67616100005174e155c6a9cb4ff45b54086209",
+                    "width": 320
+                },
+                {
+                    "height": 160,
+                    "url": "https://i.scdn.co/image/ab6761610000f178e155c6a9cb4ff45b54086209",
+                    "width": 160
+                }
+            ],
+            "name": "4x3",
+            "popularity": 45,
+            "type": "artist",
+            "uri": "spotify:artist:52NCHGkTcQvvAQDY6Iy7al"
+        },
+        {
+            "external_urls": {
+                "spotify": "https://open.spotify.com/artist/2Qqrew4ZcEwf9NY7UqWGfU"
+            },
+            "followers": {
+                "href": null,
+                "total": 210288
+            },
+            "genres": [
+                "anime",
+                "j-pop"
+            ],
+            "href": "https://api.spotify.com/v1/artists/2Qqrew4ZcEwf9NY7UqWGfU",
+            "id": "2Qqrew4ZcEwf9NY7UqWGfU",
+            "images": [
+                {
+                    "height": 640,
+                    "url": "https://i.scdn.co/image/ab6761610000e5eb375ece7b58b0ece96cfbf8d7",
+                    "width": 640
+                },
+                {
+                    "height": 320,
+                    "url": "https://i.scdn.co/image/ab67616100005174375ece7b58b0ece96cfbf8d7",
+                    "width": 320
+                },
+                {
+                    "height": 160,
+                    "url": "https://i.scdn.co/image/ab6761610000f178375ece7b58b0ece96cfbf8d7",
+                    "width": 160
+                }
+            ],
+            "name": "ALI",
+            "popularity": 58,
+            "type": "artist",
+            "uri": "spotify:artist:2Qqrew4ZcEwf9NY7UqWGfU"
+        }
+    ],
+    "total": 4,
+    "limit": 10,
+    "offset": 0,
+    "href": "https://api.spotify.com/v1/me/top/artists?limit=10",
+    "next": null,
+    "previous": null
+}

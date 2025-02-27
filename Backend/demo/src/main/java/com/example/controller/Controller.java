@@ -41,7 +41,7 @@ public class Controller {
         String token = get();
         JSONObject jsonObject = new JSONObject(token);
         apiServicesImp.setAccess_token(jsonObject.getString("access_token"));
-//        System.out.println(apiServicesImp.getAccess_token());
+        System.out.println(apiServicesImp.getAccess_token());
         apiServicesImp.setRefresh_token(jsonObject.getString("refresh_token"));
 //        System.out.println(apiServicesImp.getRefresh_token());
         return token;
@@ -102,7 +102,50 @@ public class Controller {
     @GetMapping("/artists/{id}")
     @ResponseBody
     public String getArtist(@PathVariable String id){
+        System.out.println(id);
         String baseUrl="https://api.spotify.com/v1/artists/";
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", "Bearer "+apiServicesImp.getAccess_token());
+        HttpEntity<String> entity = new HttpEntity<>(headers);
+
+        try {
+            ResponseEntity<String> response = restTemplate.exchange(baseUrl+id, HttpMethod.GET, entity, String.class);
+            return response.getBody();
+        }
+        catch (HttpClientErrorException e){
+            return refreshToken(e);
+//            return "redirect:"+baseUrl+id;
+        }
+        catch (Exception e) {
+            return "Error al obtener artista: " + e.getMessage();
+        }
+    }//GET /playlist/{id}: Fetch detailed information about a specific playlist.
+    @GetMapping("/playlist/{id}")
+    @ResponseBody
+    public String getPlaylist(@PathVariable String id){
+        System.out.println(id);
+        String baseUrl="https://api.spotify.com/v1/playlists/";
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", "Bearer "+apiServicesImp.getAccess_token());
+        HttpEntity<String> entity = new HttpEntity<>(headers);
+
+        try {
+            ResponseEntity<String> response = restTemplate.exchange(baseUrl+id, HttpMethod.GET, entity, String.class);
+            return response.getBody();
+        }
+        catch (HttpClientErrorException e){
+            return refreshToken(e);
+//            return "redirect:"+baseUrl+id;
+        }
+        catch (Exception e) {
+            return "Error al obtener artista: " + e.getMessage();
+        }
+    }//GET /track/{id}: Fetch detailed information about a specific track.
+    @GetMapping("/track/{id}")
+    @ResponseBody
+    public String getTrack(@PathVariable String id){
+        System.out.println(id);
+        String baseUrl="https://api.spotify.com/v1/tracks/";
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Bearer "+apiServicesImp.getAccess_token());
         HttpEntity<String> entity = new HttpEntity<>(headers);
@@ -123,7 +166,7 @@ public class Controller {
     @GetMapping("/albums/{id}")
     @ResponseBody
     public String getAlbum(@PathVariable String id){
-        System.out.println(id);
+
         String baseUrl="https://api.spotify.com/v1/albums/";
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Bearer "+apiServicesImp.getAccess_token());
