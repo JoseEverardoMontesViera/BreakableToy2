@@ -1,5 +1,6 @@
 import React from 'react'
 import logo from '../imgs/spotifyLogo.png'
+import { Link } from 'react-router';
 
 function SongCard(props: {img:string, name: string,artist:any,year:number}) {
   // Datos Esperados
@@ -24,17 +25,19 @@ function SongCard(props: {img:string, name: string,artist:any,year:number}) {
     }
   }
   return (
+    <Link to="#" className='cardLink'>
+      <div className='SpotifyCard'>
+        <div className='pic'>
+          <img src={props.img ? props.img:logo} alt="" />
+        </div>
+        <div className='text'>
+          <p>Song Title: {props.name? props.name:"NotFound"}</p>
+          <p>Artist: {artist? artist.toString():"NotFound"}</p>
+          <p>Year: {props.year? props.year:"NotFound"}</p>
+        </div>
+      </div>
+    </Link>
     
-    <div className='SpotifyCard'>
-      <div className='pic'>
-        <img src={props.img ? props.img:logo} alt="" />
-      </div>
-      <div className='text'>
-        <p>Song Title: {props.name? props.name:"NotFound"}</p>
-        <p>Artist: {artist? artist.toString():"NotFound"}</p>
-        <p>Year: {props.year? props.year:"NotFound"}</p>
-      </div>
-    </div>
   )
 }
 

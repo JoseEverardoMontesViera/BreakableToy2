@@ -7,6 +7,9 @@ body{
 p{
   color: rgb(0, 0, 0);
 }
+a{
+  text-decoration: none;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -15,7 +18,8 @@ p{
   display: flex;
   background-color: white;
   width: fit-content;
-  min-height: 50px;
+  max-height: 110px;
+  min-height: 110px;
   align-items: center;
   width: 380px;
   border: 1px solid hsl(0, 0%, 80%);
@@ -23,6 +27,11 @@ p{
   box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
   padding: 20px;
   margin: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+.SpotifyCard:hover {
+  transform: scale(1.05) translate(-10px, -10px);
+  cursor: pointer;
 }
 
 .SpotifyCard .text{
@@ -41,6 +50,7 @@ p{
   height: 80px;
   width: auto;
 }
+
 .cardBlock{
   display: flex;
   flex-wrap: wrap;
@@ -91,6 +101,9 @@ p{
 }
 .searchResults .cardBlock{
   justify-content: center;
+}
+.cardLink{
+  min-height: 50px;
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
