@@ -2,15 +2,16 @@ import React from 'react'
 import logo from '../imgs/spotifyLogo.png'
 import { Link } from 'react-router'
 
-const PlaylistCard = (props: {img:string, name: string,creator:string,numberOfSongs:number}) => {
+const PlaylistCard = (props: {img:string, name: string,creator:string,numberOfSongs:number, id:string}) => {
   // Datos Esperados
   // props.img es items[n].images[0].url
   // props.name es items[n].name
   // props.creator es item[n].owner.display_name
   // props.numberOfSongs es item[n].tracks.total
   console.log("entre")
+  let idRoute = "/playlists/"+props.id;
   return (
-    <Link to="#" className='cardLink'>
+    <Link to={idRoute} className='cardLink'>
       <div className='SpotifyCard'>
         <div className='pic'>
           <img src={props.img ? props.img:logo} alt="" />

@@ -1,12 +1,11 @@
 import React from 'react'
 import logo from '../imgs/spotifyLogo.png'
 import { Link } from 'react-router';
-const ArtistCard = (props: {img:string, name: string,genres:any}) => {
+const ArtistCard = (props: {img:string, name: string,genres:any,id:string}) => {
   // Datos Esperados
   // props.img es items[n].images[0].url
   // props.name es items[n].name
   // props.genres es items[n].genres
-  
   let genres;
   if(props.genres.length==0){
     genres="";
@@ -22,8 +21,9 @@ const ArtistCard = (props: {img:string, name: string,genres:any}) => {
        });
     }
   }
+  let idRoute = "/artists/"+props.id;
   return (
-    <Link to="/login" className='cardLink'>
+    <Link to={idRoute} className='cardLink'>
       <div className='SpotifyCard'>
         <div className='pic'>
           <img src={props.img ? props.img:logo} alt="" />

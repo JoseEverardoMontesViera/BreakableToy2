@@ -3,20 +3,24 @@ import {LogInForm} from './components/LogInForm';
 import { Home } from './components/Home';
 import { Link, BrowserRouter, Route, Routes } from 'react-router';
 import './App.css';
+import Layout from './components/Layout';
+import ArtistMenu from './components/ArtistMenu';
+import AlbumMenu from './components/AlbumMenu';
+import PlaylistMenu from './components/PlaylistMenu';
 
 
-const Login = () => <h1>Login</h1>;
-const Jome = () => <h1>Home Page</h1>;
-const ArtistMenu = () => <h1>Artist Menu</h1>;
-const AlbumMenu = () => <h1>Album Menu</h1>;
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/login' element={<LogInForm></LogInForm>}></Route>
-        <Route path='/' element={<Home></Home>}></Route>
-        <Route path='/artists/' element={<Home></Home>}></Route>
-        <Route path='/album/' element={<Home></Home>}></Route>
+        {/* <Route path='/login' element={<LogInForm></LogInForm>}></Route> */}
+        <Route path='/' element={<Layout></Layout>}>
+          <Route path='/' element={<Home></Home>}></Route>
+          <Route path='/artists/:id' element={<ArtistMenu></ArtistMenu>}></Route>
+          <Route path='/albums/:id' element={<AlbumMenu></AlbumMenu>}></Route>
+          <Route path='/playlists/:id' element={<PlaylistMenu></PlaylistMenu>}></Route>
+        </Route>
+        
       </Routes> 
     </BrowserRouter>
     //{getContent()}

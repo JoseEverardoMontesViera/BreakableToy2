@@ -184,6 +184,54 @@ public class Controller {
             return "Error al obtener artista: " + e.getMessage();
         }
     }
+    //Get popular songs of  an artist
+    @GetMapping("/artists/{id}/top-tracks")
+    @ResponseBody
+    public String getArtistTopTracks(@PathVariable String id){
+        System.out.println(id);
+        String baseUrl="https://api.spotify.com/v1/artists/";
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", "Bearer "+apiServicesImp.getAccess_token());
+        HttpEntity<String> entity = new HttpEntity<>(headers);
+
+        try {
+            ResponseEntity<String> response = restTemplate.exchange(baseUrl+id+"/top-tracks", HttpMethod.GET, entity, String.class);
+            return response.getBody();
+        }
+        catch (HttpClientErrorException e){
+            return refreshToken(e);
+//            return "redirect:"+baseUrl+id;
+        }
+        catch (Exception e) {
+            return "Error al obtener albumes del artista: " + e.getMessage();
+        }
+    }
+    //Get albums from an artist
+    @GetMapping("/artists/{id}/albums")
+    @ResponseBody
+    public String getArtistAlbums(@PathVariable String id){
+        System.out.println(id);
+        String baseUrl="https://api.spotify.com/v1/artists/";
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", "Bearer "+apiServicesImp.getAccess_token());
+        HttpEntity<String> entity = new HttpEntity<>(headers);
+
+        try {
+            ResponseEntity<String> response = restTemplate.exchange(baseUrl+id+"/albums?limit=3", HttpMethod.GET, entity, String.class);
+            return response.getBody();
+        }
+        catch (HttpClientErrorException e){
+            return refreshToken(e);
+//            return "redirect:"+baseUrl+id;
+        }
+        catch (Exception e) {
+            return "Error al obtener albumes del artista: " + e.getMessage();
+        }
+    }
+    //Get related artist from an artist
+    //pendiente pq la api esta deprecada
+
+
     //GET /search: Allow search for artists, albums, or tracks.
     @GetMapping("/search")
     @ResponseBody
