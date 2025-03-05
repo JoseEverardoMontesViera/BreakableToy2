@@ -1,9 +1,38 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Track from './Track'
 import DataTable from 'react-data-table-component'
+import axios from 'axios';
 
 function TrackLister({trackList}:any) {
+  const [token, setToken] = useState<string>('');
+  useEffect(() => {
+    axios.get(`http://localhost:8080/getAt`)
+        .then(response => {
+          setToken(response.data);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }, []);
     function handleClick(row:any){
+      axios.put('https://api.spotify.com/v1/me/player/play', 
+        {
+          uris: [row.uri],
+          position_ms: 0
+        },
+        {
+        headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        }
+      )
+      .then(response => {
+        console.log('Respuesta exitosa:', response);
+      })
+      .catch(error => {
+        console.error('Error en la solicitud:', error);
+      });
       return console.log(row)
     }
     function convertMilliseconds(ms:any){
@@ -95,20 +124,28 @@ function TrackLister({trackList}:any) {
       },
       
     ]
-    const data = [tracks.sort((a: any, b: any) => b.popularity - a.popularity).map((element:any, i:number)=>{
-      {
-        return(
-          { 
-            rank:i+1,
-            image:element.album.images[0].url,
-            name:element.name,
-            popularity:element.popularity,
-            songLength:element.duration_ms,
-            id:element.id,
-          }
-        )
-      }
-    })]
+    let data: any[];
+    if(tracks!=undefined){
+       data = [tracks.sort((a: any, b: any) => b.popularity - a.popularity).map((element:any, i:number)=>{
+        {
+          return(
+            { 
+              rank:i+1,
+              image:element.album.images[0].url,
+              name:element.name,
+              popularity:element.popularity,
+              songLength:element.duration_ms,
+              id:element.id,
+              uri:element.uri
+            }
+          )
+        }
+      })]
+    }
+    else{
+      data=[]
+    }
+    
     console.log(data)
   return (
     <div className='TrackList'>

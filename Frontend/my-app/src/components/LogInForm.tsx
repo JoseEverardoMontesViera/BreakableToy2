@@ -1,17 +1,18 @@
 import LoginPage, { Username, Password, Submit, Title, Logo, Reset } from '@react-login-page/page1';
 import Login from '@react-login-page/page1';
+import axios from 'axios';
 export function LogInForm(){
-    
+    function log(){
+        window.location.href = 'http://localhost:8080/login';
+    }
     return(
         <section>
             <div className='login'>
                     
                 <LoginPage>
-                    <Username name="userUserName" visible={false}/>
-                    <Password placeholder="请输入密码" name="userPassword" visible={false} />
-                    <Submit>Login</Submit>
-                    {/* <Submit.call>{handle}</Submit.call> */}
-                    <Reset disabled visible={false}>Reset</Reset>
+                    <Username visible={false}/>
+                    <Password visible={false} />
+                    <Submit onClick={() => log()}>Login</Submit>
                     <Title/>
                     <Login.Logo><img src="./imgs/spotifyLogo.png" alt="" /></Login.Logo>
                     <Login.Title>Login to Spotify</Login.Title>

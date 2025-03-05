@@ -1,9 +1,39 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component'
+import logo from '../imgs/spotifyLogo.png'
+import axios from 'axios';
 function TrackListerPlaylist({trackList}:any) {
+  const [token, setToken] = useState<string>('');
+  useEffect(() => {
+    axios.get(`http://localhost:8080/getAt`)
+        .then(response => {
+          setToken(response.data);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }, []);
     function handleClick(row:any){
-        return console.log(row)
-      }
+      axios.put('https://api.spotify.com/v1/me/player/play', 
+        {
+          uris: [row.uri],
+          position_ms: 0
+        },
+        {
+        headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        }
+      )
+      .then(response => {
+        console.log('Respuesta exitosa:', response);
+      })
+      .catch(error => {
+        console.error('Error en la solicitud:', error);
+      });
+      return console.log(row)
+    }
       function convertMilliseconds(ms:any){
         let seconds = Math.floor(ms / 1000);
         let minutes = Math.floor(seconds / 60); 
@@ -92,7 +122,28 @@ function TrackListerPlaylist({trackList}:any) {
         },
         
       ]
-      const data = [trackList.sort((a: any, b: any) => b.track.popularity - a.track.popularity).map((element:any, i:number)=>{
+      let data: any[]
+      function sorted(a:any,b:any){
+        let aPopu;
+        let bPopu;
+        if(b.track==null){
+          bPopu=0
+        }
+        else{
+          bPopu=b.track.popularity
+        }
+        if(a.track==null){
+          aPopu=0
+        }
+        else{
+          aPopu=a.track.popularity
+        }
+        return bPopu - aPopu
+      }
+      if(trackList!=undefined){
+      console.log(trackList)
+      data = [trackList.sort((a: any, b: any) =>sorted(a,b)
+        ).filter((item:any) => item.track !== null).map((element:any, i:number)=>{
         {
           return(
             { 
@@ -102,10 +153,14 @@ function TrackListerPlaylist({trackList}:any) {
               popularity:element.track.popularity,
               songLength:element.track.duration_ms,
               id:element.track.id,
+              uri:element.track.uri
             }
           )
         }
-      })]
+      })]}
+      else{
+        data=[]
+      }
       console.log(data)
     return (
       <div className='TrackList'>

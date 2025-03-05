@@ -1,11 +1,40 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Track from './Track'
 import DataTable from 'react-data-table-component'
+import axios from 'axios';
 
 function TrackListerAlbum({trackList}:any) {
+  const [token, setToken] = useState<string>('');
+  useEffect(() => {
+    axios.get(`http://localhost:8080/getAt`)
+        .then(response => {
+          setToken(response.data);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }, []);
     function handleClick(row:any){
-        return console.log(row)
-      }
+      axios.put('https://api.spotify.com/v1/me/player/play', 
+        {
+          uris: [row.uri],
+          position_ms: 0
+        },
+        {
+        headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        }
+      )
+      .then(response => {
+        console.log('Respuesta exitosa:', response);
+      })
+      .catch(error => {
+        console.error('Error en la solicitud:', error);
+      });
+      return console.log(row)
+    }
       function convertMilliseconds(ms:any){
         let seconds = Math.floor(ms / 1000);
         let minutes = Math.floor(seconds / 60); 
@@ -95,6 +124,7 @@ function TrackListerAlbum({trackList}:any) {
               name:element.name,
               songLength:element.duration_ms,
               id:element.id,
+              uri:element.uri
             }
           )
         }

@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import ArtistDetail from './ArtistDetail';
+import axios from 'axios';
 
 function ArtistMenu() {
+ 
   const {id}=useParams()
   console.log(id);
   return (

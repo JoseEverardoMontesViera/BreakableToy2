@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {LogInForm} from './components/LogInForm';
 import { Home } from './components/Home';
 import { Link, BrowserRouter, Route, Routes } from 'react-router';
+import { SongProvider } from './components/SongContext';
 import './App.css';
 import Layout from './components/Layout';
 import ArtistMenu from './components/ArtistMenu';
@@ -13,8 +14,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* <Route path='/login' element={<LogInForm></LogInForm>}></Route> */}
-        <Route path='/' element={<Layout></Layout>}>
+        <Route path='/login' element={<LogInForm></LogInForm>}></Route>
+        <Route path='/' element={ <SongProvider><Layout></Layout></SongProvider>}>
           <Route path='/' element={<Home></Home>}></Route>
           <Route path='/artists/:id' element={<ArtistMenu></ArtistMenu>}></Route>
           <Route path='/albums/:id' element={<AlbumMenu></AlbumMenu>}></Route>

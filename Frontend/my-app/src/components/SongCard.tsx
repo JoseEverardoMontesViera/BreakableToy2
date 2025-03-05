@@ -1,15 +1,15 @@
 import React from 'react'
 import logo from '../imgs/spotifyLogo.png'
 import { Link } from 'react-router';
-
+import { useSong } from './SongContext';
 function SongCard(props: {img:string, name: string,artist:any,year:number, id:string}) {
   // Datos Esperados
   // props.img es items[n].images[0].url
   // props.name es items[n].name
   // props.artist es item[n].artist[all].name
   // props.year es item[n].album.release_date
-
-  let artist;
+  const {setSong} = useSong(); 
+  let artist:any;
   if(props.artist.length==0){
     artist="";
   }
@@ -24,8 +24,12 @@ function SongCard(props: {img:string, name: string,artist:any,year:number, id:st
        });
     }
   }
+  const handleClick = () => {
+    setSong(props.id);
+  };
+
   return (
-    <Link to="#" className='cardLink'>
+    <div className='cardLink' onClick={handleClick}>
       <div className='SpotifyCard'>
         <div className='pic'>
           <img src={props.img ? props.img:logo} alt="" />
@@ -36,7 +40,7 @@ function SongCard(props: {img:string, name: string,artist:any,year:number, id:st
           <p>Year: {props.year? props.year:"NotFound"}</p>
         </div>
       </div>
-    </Link>
+    </div>
     
   )
 }
