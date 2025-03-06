@@ -1,25 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import {LogInForm} from './components/LogInForm';
+import { Home } from './components/Home';
+import { Link, BrowserRouter, Route, Routes } from 'react-router';
+import { SongProvider } from './components/SongContext';
 import './App.css';
+import Layout from './components/Layout';
+import ArtistMenu from './components/ArtistMenu';
+import AlbumMenu from './components/AlbumMenu';
+import PlaylistMenu from './components/PlaylistMenu';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/login' element={<LogInForm></LogInForm>}></Route>
+        <Route path='/' element={ <SongProvider><Layout></Layout></SongProvider>}>
+          <Route path='/' element={<Home></Home>}></Route>
+          <Route path='/artists/:id' element={<ArtistMenu></ArtistMenu>}></Route>
+          <Route path='/albums/:id' element={<AlbumMenu></AlbumMenu>}></Route>
+          <Route path='/playlists/:id' element={<PlaylistMenu></PlaylistMenu>}></Route>
+        </Route>
+        
+      </Routes> 
+    </BrowserRouter>
+    //{getContent()}
+    // <BrowserRouter>
+    //   <LogInForm></LogInForm>
+    //   <Home></Home>
+    // </BrowserRouter>
   );
 }
 
