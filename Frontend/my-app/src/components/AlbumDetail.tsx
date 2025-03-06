@@ -90,7 +90,7 @@ function AlbumDetail(props:{id:any}) {
               <Link to="/"><button className='GoBack'> &larr;</button></Link>
               <h1 className='title'>{data.name}</h1>
               <img src={image} alt="Artist image" className='titleImage'/>
-              <h2 className='subtitle'>Album's relase date: {data.release_date} <br /> Songs: {data.total_tracks} <br />Total duration: {duration(items)}</h2>
+              <h2 className='subtitle'>Album's relase date: {data.release_date} <br /> Songs: {data.total_tracks} <br />Total duration: {duration(items)} min</h2>
               <h1 className='subtitle'>Album songs</h1>
               <TrackListerAlbum trackList={items}></TrackListerAlbum>
               {/* <h2 className='subtitle'>Related Artists</h2>

@@ -33,6 +33,7 @@ public class Controller {
 //    Inicia el flujo de conexión con spotify
     @GetMapping("/login")
     public String login(){
+        System.out.println("wu");
         return "redirect:"+apiServicesImp.GetAuthSpotify();
     }
 //    Recupera el codigo de autorizacion
@@ -63,25 +64,25 @@ public class Controller {
         HttpEntity<MultiValueMap<String, String>> entity = new HttpEntity<>(params, headers);
         return restTemplate.exchange(baseUrl, HttpMethod.PUT, entity, String.class).getBody();
     }
-    //Start playing some song
-    @PostMapping("/play")
-    @ResponseBody
-    public String playSong(@RequestBody String uri){
-        String baseUrl = "https://api.spotify.com/v1/me/player/play";
-        MultiValueMap<String, String[]> params = new LinkedMultiValueMap<>();
-        String[] uris = new String[] {uri};
-        String[] positionMs = new String[] {"0"};
-        params.add("uris", uris);
-        params.add("position_ms", positionMs);
-        System.out.println(params);
-        HttpHeaders headers  = new HttpHeaders();
-        headers.set("content-type","application/json");
-        headers.set("Authorization", "Bearer "+apiServicesImp.getAccess_token());
-        System.out.println(headers);
-        HttpEntity<MultiValueMap<String, String[]>> entity = new HttpEntity<>(params, headers);
-        System.out.println(entity);
-        return restTemplate.exchange(baseUrl, HttpMethod.PUT, entity, String.class).getBody();
-    }//change volume
+//    //Start playing some song
+//    @PostMapping("/play")
+//    @ResponseBody
+//    public String playSong(@RequestBody String uri){
+//        String baseUrl = "https://api.spotify.com/v1/me/player/play";
+//        MultiValueMap<String, String[]> params = new LinkedMultiValueMap<>();
+//        String[] uris = new String[] {uri};
+//        String[] positionMs = new String[] {"0"};
+//        params.add("uris", uris);
+//        params.add("position_ms", positionMs);
+//        System.out.println(params);
+//        HttpHeaders headers  = new HttpHeaders();
+//        headers.set("content-type","application/json");
+//        headers.set("Authorization", "Bearer "+apiServicesImp.getAccess_token());
+//        System.out.println(headers);
+//        HttpEntity<MultiValueMap<String, String[]>> entity = new HttpEntity<>(params, headers);
+//        System.out.println(entity);
+//        return restTemplate.exchange(baseUrl, HttpMethod.PUT, entity, String.class).getBody();
+//    }//change volume
     @PostMapping("/volume/{volume}")
     @ResponseBody
     public String changeVolume(@PathVariable String volume){

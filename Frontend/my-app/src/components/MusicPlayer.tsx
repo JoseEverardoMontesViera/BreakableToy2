@@ -105,6 +105,7 @@ function MusicPlayer(props:any) {
       axios.get('http://localhost:8080/track/'+songId).then(
         response=>{
           console.log('Reproduciendo la canción: ', response.data)
+          console.log('Reproduciendo la canción: ', response.data)
           let song = {
             name: response.data.name,
             album: {
@@ -116,14 +117,13 @@ function MusicPlayer(props:any) {
                 { name:response.data.artists[0].name }
             ],
             uri: response.data.uri,
+            // Context uri
+            // context_uri:response.data.album.uri
           }
-          //  axios.post("http://localhost:8080/play",
-          //   {
-          //     uri: song.uri,
-          //   }
-          //  )
+          console.log(response.data)
           axios.put('https://api.spotify.com/v1/me/player/play', 
             {
+              // context_uri:song.context_uri, 
               uris: [song.uri],
               position_ms: 0
             },
@@ -171,6 +171,9 @@ function MusicPlayer(props:any) {
           <button className="btn-spotify" onClick={() => { player.togglePlay() }} >
             { is_paused ? <i className="fas fa-play"></i> : <i className="fas fa-pause"></i> }
           </button>
+          <button className="btn" onClick={() => { player.nextTrack() }} >
+      &gt;&gt;
+</button>
         </div>
         <input type="range" className='volumeSlider'onChange={(e)=>handleVolume(e)} defaultValue={volume}></input> 
       </div>

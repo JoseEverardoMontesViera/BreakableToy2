@@ -49,7 +49,7 @@ export function Home(){
             top: window.innerHeight,
             behavior: 'smooth' 
             });
-        }, 100)
+        }, 700)
         axios.get(`http://localhost:8080/search`, {
             params: { termn: searchTermn }
         })
