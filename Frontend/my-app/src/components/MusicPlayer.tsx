@@ -171,9 +171,7 @@ function MusicPlayer(props:any) {
           <button className="btn-spotify" onClick={() => { player.togglePlay() }} >
             { is_paused ? <i className="fas fa-play"></i> : <i className="fas fa-pause"></i> }
           </button>
-          <button className="btn" onClick={() => { player.nextTrack() }} >
-      &gt;&gt;
-</button>
+          
         </div>
         <input type="range" className='volumeSlider'onChange={(e)=>handleVolume(e)} defaultValue={volume}></input> 
       </div>
